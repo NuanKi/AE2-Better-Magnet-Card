@@ -1,0 +1,18 @@
+{
+  "package": "me.emvoh.ae2bettermagnetcard.mixin",
+  "refmap": "mixins.ae2modidviewcell.refmap.json",
+  "target": "@env(DEFAULT)",
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "MixinGuiMEMonitorable_PortableMiddleClickClone",
+    "MixinContainerMEPortableTerminalStoreToMe",
+    "MixinContainerMEMonitorable_MagnetShiftClick"
+
+  ],
+  "client": [
+    "MixinItemMaterialMagnetTooltip"
+
+  ],
+  "server": []
+}
