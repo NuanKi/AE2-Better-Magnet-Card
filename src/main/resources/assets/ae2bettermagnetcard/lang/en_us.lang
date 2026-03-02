@@ -1,0 +1,18 @@
+item.appliedenergistics2.material.card_magnet.store=Middle click while equipped on a terminal to toggle Store into ME
+
+gui.tooltips.appliedenergistics2.Magnet=Magnet
+gui.tooltips.appliedenergistics2.MagnetEnabled=Enabled
+gui.tooltips.appliedenergistics2.MagnetDisabled=Disabled
+
+gui.tooltips.appliedenergistics2.StoreToNetwork=Store into Network
+gui.tooltips.appliedenergistics2.StoreToNetworkEnabled=Enabled
+gui.tooltips.appliedenergistics2.StoreToNetworkDisabled=Disabled
+
+# Hint lines (with %s)
+item.appliedenergistics2.material.card_magnet.hold_shift=Hold %s for details.
+item.appliedenergistics2.material.card_magnet.hold_shift_m=Hold %s for compatible Terminals.
+
+# Section headers
+item.appliedenergistics2.material.card_magnet.controls=Controls
+item.appliedenergistics2.material.card_magnet.configuration=Configuration
+item.appliedenergistics2.material.card_magnet.compatible=Compatible terminals:
