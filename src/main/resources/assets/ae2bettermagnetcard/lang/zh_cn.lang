@@ -1,0 +1,17 @@
+item.appliedenergistics2.material.card_magnet.store=在终端上装备时中键点击，将物品存入ME网络
+gui.tooltips.appliedenergistics2.Magnet=磁力
+gui.tooltips.appliedenergistics2.MagnetEnabled=已启用
+gui.tooltips.appliedenergistics2.MagnetDisabled=已禁用
+
+gui.tooltips.appliedenergistics2.StoreToNetwork=存入网络
+gui.tooltips.appliedenergistics2.StoreToNetworkEnabled=已启用
+gui.tooltips.appliedenergistics2.StoreToNetworkDisabled=已禁用
+
+# 提示行（含 %s 占位符）
+item.appliedenergistics2.material.card_magnet.hold_shift=按住 %s 查看详情。
+item.appliedenergistics2.material.card_magnet.hold_shift_m=按住 %s 查看支持的终端。
+
+# 章节标题
+item.appliedenergistics2.material.card_magnet.controls=操作方式
+item.appliedenergistics2.material.card_magnet.configuration=设置
+item.appliedenergistics2.material.card_magnet.compatible=支持的终端：
