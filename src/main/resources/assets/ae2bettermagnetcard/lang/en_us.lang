@@ -1,4 +1,5 @@
 item.appliedenergistics2.material.card_magnet.store=Middle click while equipped on a terminal to toggle Store into ME
+item.appliedenergistics2.material.card_magnet.shift=Hold Shift to temporarily disable the magnet.
 
 gui.tooltips.appliedenergistics2.Magnet=Magnet
 gui.tooltips.appliedenergistics2.MagnetEnabled=Enabled

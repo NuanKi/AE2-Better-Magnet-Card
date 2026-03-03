@@ -108,6 +108,8 @@ public abstract class MixinItemMaterialMagnetTooltip {
         lines.add(TextFormatting.GRAY + I18n.translateToLocal("item.appliedenergistics2.material.card_magnet.controls") + ":");
         lines.add(TextFormatting.DARK_GRAY + "• " + TextFormatting.GRAY + I18n.translateToLocal("item.appliedenergistics2.material.card_magnet.usage"));
         lines.add(TextFormatting.DARK_GRAY + "• " + TextFormatting.GRAY + I18n.translateToLocal("item.appliedenergistics2.material.card_magnet.store"));
+        lines.add(TextFormatting.DARK_GRAY + "• " + TextFormatting.GRAY + I18n.translateToLocal("item.appliedenergistics2.material.card_magnet.shift"));
+        lines.add("");
 
         lines.add(TextFormatting.GRAY + I18n.translateToLocal("item.appliedenergistics2.material.card_magnet.configuration") + ":");
         lines.add(TextFormatting.DARK_GRAY + "• " + TextFormatting.GRAY + I18n.translateToLocal("item.appliedenergistics2.material.card_magnet.partition"));
