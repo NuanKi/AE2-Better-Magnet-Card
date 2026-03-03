@@ -7,7 +7,8 @@
   "mixins": [
     "MixinGuiMEMonitorable_PortableMiddleClickClone",
     "MixinContainerMEPortableTerminalStoreToMe",
-    "MixinContainerMEMonitorable_MagnetShiftClick"
+    "MixinContainerMEMonitorable_MagnetShiftClick",
+    "MixinMagnetLogic_SolegnoliaDisable"
 
   ],
   "client": [
