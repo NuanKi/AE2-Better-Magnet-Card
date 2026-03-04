@@ -56,6 +56,7 @@ dependencies {
     implementation rfg.deobf("curse.maven:ae2-570458:6302098") //AE2
     implementation rfg.deobf("curse.maven:nae2-884359:5380800") // NAE2
     implementation rfg.deobf("curse.maven:Botania-225643:3330934") //Botania
+    implementation rfg.deobf("curse.maven:JEIIntegration-265917:2951731") // JEI Integration
     // Mods only in code by default
     compileOnly "curse.maven:chisel-235279:2915375"
     compileOnly "curse.maven:hwyla-253449:2568751"

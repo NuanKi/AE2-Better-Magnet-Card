@@ -1,4 +1,4 @@
-package me.emvoh.ae2bettermagnetcard.mixin;
+package me.emvoh.ae2bettermagnetcard.mixin.client;
 
 import appeng.client.gui.implementations.GuiMEMonitorable;
 import appeng.container.implementations.ContainerMEPortableTerminal;

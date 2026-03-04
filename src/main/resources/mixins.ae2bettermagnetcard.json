@@ -5,15 +5,21 @@
   "minVersion": "0.8",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-    "MixinGuiMEMonitorable_PortableMiddleClickClone",
-    "MixinContainerMEPortableTerminalStoreToMe",
-    "MixinContainerMEMonitorable_MagnetShiftClick",
-    "MixinMagnetLogic_SolegnoliaDisable"
+    "accessors.AccessorAppEngSlot",
+    "accessors.AccessorStackUpgradeInventory",
 
+    "common.MixinContainerMEPortableTerminalStoreToMe",
+    "common.MixinContainerMEMonitorable_MagnetShiftClick",
+    "common.MixinMagnetLogic_SolegnoliaDisable",
+    "common.MixinItemMaterialMagnetCardCommon",
+    "common.MixinMagnetLogic_RangeUpgrade",
+    "common.MixinAE2UpgradeFilter_BMCUpgrades",
+    "common.MixinSlotRestrictedInput_BMCUpgrades",
+    "common.MixinAEBaseContainer_ShiftClickBMCUpgrades"
   ],
   "client": [
-    "MixinItemMaterialMagnetTooltip"
-
+    "client.MixinGuiMEMonitorable_PortableMiddleClickClone",
+    "client.MixinItemMaterialMagnetTooltip"
   ],
   "server": []
 }

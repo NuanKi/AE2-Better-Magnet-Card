@@ -1,6 +1,8 @@
 package me.emvoh.ae2bettermagnetcard;
 
+import appeng.api.AEApi;
 import me.emvoh.ae2bettermagnetcard.events.MagnetStoreToMEHandler;
+import me.emvoh.ae2bettermagnetcard.utils.enums.BMCUpgrades;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.item.crafting.IRecipe;
@@ -16,7 +18,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = Tags.MODID, version = Tags.VERSION, name = Tags.MODNAME, acceptedMinecraftVersions = "[1.12.2]")
+@Mod(modid = Tags.MODID, version = Tags.VERSION, name = Tags.MODNAME, acceptedMinecraftVersions = "[1.12.2]", dependencies = "required-after:appliedenergistics2;after:appliedenergistics2")
 public class Main {
 
     public static final Logger LOGGER = LogManager.getLogger(Tags.MODID);
@@ -56,6 +58,8 @@ public class Main {
     @EventHandler
     // postInit "Handle interaction with other mods, complete your setup based on this." (Remove if not needed)
     public void postInit(FMLPostInitializationEvent event) {
+        BMCUpgrades.RANGE.registerItem(AEApi.instance().definitions().materials().cardMagnet(), 1);
+        BMCUpgrades.ADVANCED_RANGE.registerItem(AEApi.instance().definitions().materials().cardMagnet(), 1);
     }
 
     @EventHandler

@@ -1,7 +1,7 @@
-package me.emvoh.ae2bettermagnetcard.mixin;
+package me.emvoh.ae2bettermagnetcard.mixin.common;
 
 import appeng.items.tools.powered.ToolWirelessTerminal;
-import me.emvoh.ae2bettermagnetcard.utils.BotaniaSolegnoliaCompat;
+import me.emvoh.ae2bettermagnetcard.integration.botania.BotaniaSolegnoliaCompat;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;

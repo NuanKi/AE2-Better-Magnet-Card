@@ -1,0 +1,8 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    { "item": "appliedenergistics2:material", "data": 28 },
+    { "item": "appliedenergistics2:material", "data": 9 }
+  ],
+  "result": { "item": "ae2bettermagnetcard:bmc_upgrade", "data": 0, "count": 1 }
+}

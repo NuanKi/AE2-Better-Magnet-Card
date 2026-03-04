@@ -1,0 +1,9 @@
+{
+  "parent": "item/generated",
+  "variants": {
+    "inventory": [{ "model": "ae2bettermagnetcard:bmc_upgrade_range" }]
+  },
+  "overrides": [
+    { "predicate": { "custom_model_data": 0 }, "model": "ae2bettermagnetcard:bmc_upgrade_range" }
+  ]
+}

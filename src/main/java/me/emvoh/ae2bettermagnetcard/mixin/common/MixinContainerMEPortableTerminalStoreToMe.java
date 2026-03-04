@@ -1,4 +1,4 @@
-package me.emvoh.ae2bettermagnetcard.mixin;
+package me.emvoh.ae2bettermagnetcard.mixin.common;
 
 import appeng.api.AEApi;
 import appeng.container.implementations.ContainerMEPortableTerminal;

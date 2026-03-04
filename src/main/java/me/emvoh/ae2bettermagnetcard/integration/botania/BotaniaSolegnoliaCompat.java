@@ -1,4 +1,4 @@
-package me.emvoh.ae2bettermagnetcard.utils;
+package me.emvoh.ae2bettermagnetcard.integration.botania;
 
 import net.minecraft.entity.Entity;
 import net.minecraftforge.fml.common.Loader;
