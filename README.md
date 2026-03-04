@@ -1,5 +1,5 @@
-[![Downloads](http://cf.way2muchnoise.eu/1456030.svg)](https://www.curseforge.com/minecraft/mc-mods/ae2-better-magnet-card)
-[![MCVersion](http://cf.way2muchnoise.eu/versions/1456030.svg)](https://www.curseforge.com/minecraft/mc-mods/ae2-better-magnet-card)
+[![Downloads](https://cf.way2muchnoise.eu/1475753.svg)](https://www.curseforge.com/minecraft/mc-mods/ae2-better-magnet-card)
+[![MCVersion](https://cf.way2muchnoise.eu/versions/1475753.svg)](https://www.curseforge.com/minecraft/mc-mods/ae2-better-magnet-card)
 [![GitHub issues](https://img.shields.io/github/issues/NuanKi/AE2-Better-Magnet-Card.svg)](https://github.com/NuanKi/AE2-Better-Magnet-Card/issues)
 [![GitHub pull requests](https://img.shields.io/github/issues-pr/NuanKi/AE2-Better-Magnet-Card.svg)](https://github.com/NuanKi/AE2-Better-Magnet-Card/pulls)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
