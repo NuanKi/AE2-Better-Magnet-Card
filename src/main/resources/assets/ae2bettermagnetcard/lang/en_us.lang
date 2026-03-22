@@ -62,3 +62,10 @@ item.ae2bettermagnetcard.bmc_upgrade.range.detail_range=Pickup radius: %d → %d
 item.ae2bettermagnetcard.bmc_upgrade.advanced_range.name=Advanced Range Card
 item.ae2bettermagnetcard.bmc_upgrade.advanced_range.effect_short=Triples the Magnet Card pickup radius.
 item.ae2bettermagnetcard.bmc_upgrade.advanced_range.detail_range=Pickup radius: %d → %d blocks
+
+####################################
+# Controls
+####################################
+key.category.ae2bettermagnetcard=AE2 Better Magnet Card
+key.ae2bettermagnetcard.toggle_store=Toggle Store into Network
+key.ae2bettermagnetcard.toggle_magnet=Toggle Magnet

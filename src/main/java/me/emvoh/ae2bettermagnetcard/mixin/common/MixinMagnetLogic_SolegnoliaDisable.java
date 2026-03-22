@@ -13,7 +13,6 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@SuppressWarnings("UnresolvedMixinReference")
 @Mixin(value = ToolWirelessTerminal.class, remap = false)
 public abstract class MixinMagnetLogic_SolegnoliaDisable {
 

@@ -37,10 +37,6 @@ public abstract class MixinItemMaterialMagnetTooltip {
     @Unique
     private static final Pattern AE2BMC_NUMBER_PREFIX = Pattern.compile("(\\d+)[^\\d]");
 
-    /**
-     * NOTE: add this lang key:
-     * item.ae2bettermagnetcard.magnet.available_upgrades=Available upgrades
-     */
     @Inject(
             method = "addCheckedInformation",
             at = @At(

@@ -27,13 +27,13 @@ import javax.annotation.Nullable;
 
 public class MagnetStoreToMEHandler {
 
-    private static final class TerminalAndMagnet {
-        final ItemStack terminalStack;
-        final int slotIdx;
-        final boolean isBauble;
-        final ItemStack magnetCard;
+    public static final class TerminalAndMagnet {
+        public final ItemStack terminalStack;
+        public final int slotIdx;
+        public final boolean isBauble;
+        public final ItemStack magnetCard;
 
-        private TerminalAndMagnet(final ItemStack terminalStack, final int slotIdx, final boolean isBauble, final ItemStack magnetCard) {
+        public TerminalAndMagnet(final ItemStack terminalStack, final int slotIdx, final boolean isBauble, final ItemStack magnetCard) {
             this.terminalStack = terminalStack;
             this.slotIdx = slotIdx;
             this.isBauble = isBauble;
@@ -67,7 +67,7 @@ public class MagnetStoreToMEHandler {
             return;
         }
 
-        final TerminalAndMagnet ctx = findTerminalWithStoreMagnet(player);
+        final TerminalAndMagnet ctx = findTerminalWithEnabledStoreMagnet(player);
         if (ctx == null) {
             return;
         }
@@ -140,7 +140,7 @@ public class MagnetStoreToMEHandler {
     }
 
     @Nullable
-    private TerminalAndMagnet findTerminalWithStoreMagnet(final EntityPlayer player) {
+    public TerminalAndMagnet findTerminalWithEnabledStoreMagnet(final EntityPlayer player) {
         final NonNullList<ItemStack> inv = player.inventory.mainInventory;
 
         // 1) Mainhand first
@@ -178,6 +178,100 @@ public class MagnetStoreToMEHandler {
         }
 
         return null;
+    }
+
+    @Nullable
+    public TerminalAndMagnet findAnyTerminalWithMagnet(final EntityPlayer player) {
+        final NonNullList<ItemStack> inv = player.inventory.mainInventory;
+
+        // 1) Mainhand first
+        TerminalAndMagnet ctx = checkTerminalStackAny(player.getHeldItemMainhand(), player.inventory.currentItem, false);
+        if (ctx != null) {
+            return ctx;
+        }
+
+        // 2) Hotbar next
+        for (int i = 0; i < 9 && i < inv.size(); i++) {
+            if (i == player.inventory.currentItem) {
+                continue;
+            }
+
+            ctx = checkTerminalStackAny(inv.get(i), i, false);
+            if (ctx != null) {
+                return ctx;
+            }
+        }
+
+        // 3) Rest of inventory
+        for (int i = 9; i < inv.size(); i++) {
+            ctx = checkTerminalStackAny(inv.get(i), i, false);
+            if (ctx != null) {
+                return ctx;
+            }
+        }
+
+        // 4) Baubles last
+        if (Platform.isModLoaded("baubles")) {
+            final TerminalAndMagnet baubleCtx = tryFindAnyInBaubles(player);
+            if (baubleCtx != null) {
+                return baubleCtx;
+            }
+        }
+
+        return null;
+    }
+
+    private TerminalAndMagnet checkTerminalStackAny(final ItemStack terminalStack, final int slotIdx, final boolean isBauble) {
+        if (terminalStack.isEmpty()) {
+            return null;
+        }
+
+        if (!AEApi.instance().registries().wireless().isWirelessTerminal(terminalStack)) {
+            return null;
+        }
+
+        final ItemStack magnetCard = findMagnetCard(terminalStack);
+        if (magnetCard == null || magnetCard.isEmpty()) {
+            return null;
+        }
+
+        return new TerminalAndMagnet(terminalStack, slotIdx, isBauble, magnetCard);
+    }
+
+    @Optional.Method(modid = "baubles")
+    private TerminalAndMagnet tryFindAnyInBaubles(final EntityPlayer player) {
+        final baubles.api.cap.IBaublesItemHandler bh = baubles.api.BaublesApi.getBaublesHandler(player);
+
+        for (int i = 0; i < bh.getSlots(); i++) {
+            final ItemStack stack = bh.getStackInSlot(i);
+            final TerminalAndMagnet ctx = checkTerminalStackAny(stack, i, true);
+            if (ctx != null) {
+                return ctx;
+            }
+        }
+
+        return null;
+    }
+
+    @Nullable
+    private ItemStack findMagnetCard(final ItemStack terminalStack) {
+        final NBTTagCompound upgradesNbt = Platform.openNbtData(terminalStack).getCompoundTag("upgrades");
+
+        final ItemStackHandler handler = new ItemStackHandler(0);
+        handler.deserializeNBT(upgradesNbt);
+
+        for (int s = 0; s < handler.getSlots(); s++) {
+            final ItemStack card = handler.getStackInSlot(s);
+            if (card.isEmpty()) {
+                continue;
+            }
+
+            if (AEApi.instance().definitions().materials().cardMagnet().isSameAs(card)) {
+                return card;
+            }
+        }
+
+        return ItemStack.EMPTY;
     }
 
     private TerminalAndMagnet checkTerminalStack(final ItemStack terminalStack, final int slotIdx, final boolean isBauble) {
@@ -230,6 +324,11 @@ public class MagnetStoreToMEHandler {
             }
 
             final NBTTagCompound tag = card.getTagCompound();
+
+            final boolean magnetEnabled = tag == null || !tag.hasKey("enabled") || tag.getBoolean("enabled");
+            if (!magnetEnabled) {
+                continue;
+            }
 
             final boolean storeToME = tag != null && tag.hasKey("storeToME") && tag.getBoolean("storeToME");
             if (!storeToME) {
