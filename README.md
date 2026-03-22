@@ -18,6 +18,7 @@ https://www.curseforge.com/minecraft/mc-mods/ae2-better-magnet-card
 ## Features
 - **Store to Network** toggle for the Magnet Card
 - Quick toggle from the terminal UI (middle-click the Magnet Card in the upgrade slot)
+- **Configurable Keybinds** to enable or disable both Magnet and Store to Network functionality
 - Clear Magnet Card tooltip showing the current state
 - Shift-clicking a Magnet Card prefers inserting it into the terminal **UPGRADES** slot (instead of dumping it into the ME network)
 

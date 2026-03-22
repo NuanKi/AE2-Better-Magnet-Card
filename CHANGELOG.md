@@ -8,6 +8,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 - None
 
+## [1.1.2] - 2026-03-22
+
+### Added
+- Configurable keybindings to enable and disable functionality:
+    - **Toggle Store into Network**: `Shift` + `;` (Semicolon)
+    - **Toggle Magnet**: `Shift` + `Tab`
+- Visual feedback: Action bar messages now use color-coded status (Green for Enabled, Red for Disabled) when toggling through keybinds or middle-click.
+- Persistent state: Keybind toggles correctly update and persist within the terminal's upgrade inventory and synchronize with the existing magnet logic.
+
 ## [1.1.0] - 2026-03-04
 
 ### Added
@@ -50,7 +59,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Initial release.
 
-[Unreleased]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.1.0...HEAD
+[Unreleased]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.1.2...HEAD
+[1.1.2]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.1.0...v1.1.2
 [1.1.0]: https://github.com/NuanKi/AE2-Better-Magnet-Card/tree/v1.1.0
 [1.0.2]: https://github.com/NuanKi/AE2-Better-Magnet-Card/tree/v1.0.2
 [1.0.0]: https://github.com/NuanKi/AE2-Better-Magnet-Card/tree/v1.0.0
