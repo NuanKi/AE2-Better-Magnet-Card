@@ -1,4 +1,14 @@
+######################################################################
+# AE2BetterMagnetCard - Localization
+######################################################################
+
+
+#############################
+# Magnet Card - custom lines
+#############################
+
 item.appliedenergistics2.material.card_magnet.store=安装在终端中时，中键点击以开关存储到ME网络功能
+item.appliedenergistics2.material.card_magnet.shift=按住 Shift 暂时禁用磁引功能。
 
 gui.tooltips.appliedenergistics2.Magnet=磁引
 gui.tooltips.appliedenergistics2.MagnetEnabled=已启用
@@ -8,11 +18,54 @@ gui.tooltips.appliedenergistics2.StoreToNetwork=存储到网络
 gui.tooltips.appliedenergistics2.StoreToNetworkEnabled=已启用
 gui.tooltips.appliedenergistics2.StoreToNetworkDisabled=已禁用
 
+item.ae2bettermagnetcard.magnet.available_upgrades=可安装升级：
+
+
+############################################
+# Magnet Card - AE2 hint lines / headers
+############################################
+
 # Hint lines (with %s)
 item.appliedenergistics2.material.card_magnet.hold_shift=按住 %s 查看详细信息。
-item.appliedenergistics2.material.card_magnet.hold_shift_m=按住 %s 查看兼容的终端。
+item.appliedenergistics2.material.card_magnet.hold_shift_m=按住 %s 查看兼容终端。
 
 # Section headers
-item.appliedenergistics2.material.card_magnet.controls=控制
+item.appliedenergistics2.material.card_magnet.controls=操作说明
 item.appliedenergistics2.material.card_magnet.configuration=配置
-item.appliedenergistics2.material.card_magnet.compatible=兼容的终端：
+item.appliedenergistics2.material.card_magnet.compatible=兼容终端：
+
+
+###########################################
+# BMC Upgrade Cards - global tooltip keys
+###########################################
+
+item.ae2bettermagnetcard.hold_shift=按住 %s 查看详细信息。
+item.ae2bettermagnetcard.hold_shift_m=按住 %s 显示支持的物品/方块。
+item.ae2bettermagnetcard.compatible_with=可安装于：
+item.ae2bettermagnetcard.bmc_upgrade.details=详情
+item.ae2bettermagnetcard.bmc_upgrade.generic_no_details=无额外说明。
+
+
+##########################
+# BMC Upgrade: Range Card
+##########################
+
+item.ae2bettermagnetcard.bmc_upgrade.range.name=范围卡
+item.ae2bettermagnetcard.bmc_upgrade.range.effect_short=使磁引卡的拾取半径翻倍。
+item.ae2bettermagnetcard.bmc_upgrade.range.detail_range=拾取半径：%d → %d 格
+
+
+###################################
+# BMC Upgrade: Advanced Range Card
+###################################
+
+item.ae2bettermagnetcard.bmc_upgrade.advanced_range.name=高级范围卡
+item.ae2bettermagnetcard.bmc_upgrade.advanced_range.effect_short=使磁引卡的拾取半径变为三倍。
+item.ae2bettermagnetcard.bmc_upgrade.advanced_range.detail_range=拾取半径：%d → %d 格
+
+####################################
+# Controls
+####################################
+key.category.ae2bettermagnetcard=AE2更好的磁引卡（AE2 Better Magnet Card）
+key.ae2bettermagnetcard.toggle_store=开关存入网络功能
+key.ae2bettermagnetcard.toggle_magnet=开关磁引功能
