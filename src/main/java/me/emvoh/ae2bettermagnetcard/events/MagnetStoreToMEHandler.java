@@ -22,6 +22,7 @@ import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.fml.common.Optional;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.items.ItemStackHandler;
+import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nullable;
 
@@ -58,7 +59,7 @@ public class MagnetStoreToMEHandler {
         }
 
         final NBTTagCompound entityTag = entityItem.getEntityData();
-        if (entityTag != null && entityTag.hasKey("PreventRemoteMovement")) {
+        if (entityTag.hasKey("PreventRemoteMovement")) {
             return;
         }
 
@@ -171,10 +172,7 @@ public class MagnetStoreToMEHandler {
 
         // 4) Baubles last
         if (Platform.isModLoaded("baubles")) {
-            final TerminalAndMagnet baubleCtx = tryFindInBaubles(player);
-            if (baubleCtx != null) {
-                return baubleCtx;
-            }
+            return tryFindInBaubles(player);
         }
 
         return null;
@@ -212,10 +210,7 @@ public class MagnetStoreToMEHandler {
 
         // 4) Baubles last
         if (Platform.isModLoaded("baubles")) {
-            final TerminalAndMagnet baubleCtx = tryFindAnyInBaubles(player);
-            if (baubleCtx != null) {
-                return baubleCtx;
-            }
+            return tryFindAnyInBaubles(player);
         }
 
         return null;
@@ -253,8 +248,7 @@ public class MagnetStoreToMEHandler {
         return null;
     }
 
-    @Nullable
-    private ItemStack findMagnetCard(final ItemStack terminalStack) {
+    private @NotNull ItemStack findMagnetCard(final ItemStack terminalStack) {
         final NBTTagCompound upgradesNbt = Platform.openNbtData(terminalStack).getCompoundTag("upgrades");
 
         final ItemStackHandler handler = new ItemStackHandler(0);
@@ -306,8 +300,7 @@ public class MagnetStoreToMEHandler {
         return null;
     }
 
-    @Nullable
-    private ItemStack findStoreEnabledMagnetCard(final ItemStack terminalStack) {
+    private @NotNull ItemStack findStoreEnabledMagnetCard(final ItemStack terminalStack) {
         final NBTTagCompound upgradesNbt = Platform.openNbtData(terminalStack).getCompoundTag("upgrades");
 
         final ItemStackHandler handler = new ItemStackHandler(0);

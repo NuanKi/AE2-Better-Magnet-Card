@@ -215,7 +215,7 @@ public abstract class MixinItemMaterialMagnetTooltip {
             out.add(name + " (" + limit + ")");
         }
 
-        Collections.sort(out, ae2bettermagnetcard$numberAwareComparator());
+        out.sort(ae2bettermagnetcard$numberAwareComparator());
         return out;
     }
 
@@ -290,8 +290,7 @@ public abstract class MixinItemMaterialMagnetTooltip {
     private static String ae2bettermagnetcard$formatSupportedName(final Upgrades u, final ItemStack key, final int limit) {
         String name = null;
 
-        if (key.getItem() instanceof IItemGroup) {
-            final IItemGroup ig = (IItemGroup) key.getItem();
+        if (key.getItem() instanceof IItemGroup ig) {
             final String str = ig.getUnlocalizedGroupName(u.getSupported().keySet(), key);
             if (str != null) {
                 name = Platform.gui_localize(str) + (limit > 1 ? " (" + limit + ')' : "");
