@@ -1,0 +1,212 @@
+name: Publish Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag, for example v1.1.5"
+        required: true
+        type: string
+      release_type:
+        description: "CurseForge release type"
+        required: true
+        default: release
+        type: choice
+        options:
+          - release
+          - beta
+          - alpha
+      dry_run:
+        description: "Build and verify release files without publishing"
+        required: true
+        default: true
+        type: boolean
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Resolve release metadata
+        id: release
+        shell: bash
+        env:
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: |
+          if [[ ! "$RELEASE_TAG" =~ ^v[0-9A-Za-z.+_-]+$ ]]; then
+            echo "1.12.2 Forge tags must look like v1.1.5"
+            exit 1
+          fi
+
+          version="${RELEASE_TAG#v}"
+          archive_base="BetterMagnetCard"
+          game_version="1.12.2"
+          loader="forge"
+          java_version="8"
+          release_name="${archive_base}-${version}.jar"
+
+          echo "version=$version" >> "$GITHUB_OUTPUT"
+          echo "archive_base=$archive_base" >> "$GITHUB_OUTPUT"
+          echo "game_version=$game_version" >> "$GITHUB_OUTPUT"
+          echo "loader=$loader" >> "$GITHUB_OUTPUT"
+          echo "java_version=$java_version" >> "$GITHUB_OUTPUT"
+          echo "release_name=$release_name" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout release tag
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.tag }}
+          fetch-depth: 0
+          fetch-tags: true
+
+      - name: Setup JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: "21"
+          distribution: "temurin"
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Make Gradle wrapper executable
+        run: chmod +x ./gradlew
+
+      - name: Build with Gradle
+        run: ./gradlew build
+
+      - name: Resolve release files
+        id: files
+        shell: bash
+        env:
+          ARCHIVE_BASE: ${{ steps.release.outputs.archive_base }}
+          VERSION: ${{ steps.release.outputs.version }}
+        run: |
+          jar="build/libs/${ARCHIVE_BASE}-${VERSION}.jar"
+          sources_jar="build/libs/${ARCHIVE_BASE}-${VERSION}-sources.jar"
+          dev_jar="build/libs/${ARCHIVE_BASE}-${VERSION}-dev.jar"
+
+          if [[ ! -f "$jar" ]]; then
+            echo "Expected release jar was not built: $jar"
+            echo "Built jars:"
+            find build/libs -maxdepth 1 -name "*.jar" -print
+            exit 1
+          fi
+
+          for extra_jar in "$sources_jar" "$dev_jar"; do
+            if [[ ! -f "$extra_jar" ]]; then
+              echo "Expected extra jar was not built: $extra_jar"
+              echo "Built jars:"
+              find build/libs -maxdepth 1 -name "*.jar" -print
+              exit 1
+            fi
+          done
+
+          if find build/libs -maxdepth 1 -name "*NO-GIT-TAG-SET*.jar" | grep -q .; then
+            echo "Refusing to publish a NO-GIT-TAG-SET build."
+            exit 1
+          fi
+
+          echo "jar=$jar" >> "$GITHUB_OUTPUT"
+          echo "sources_jar=$sources_jar" >> "$GITHUB_OUTPUT"
+          echo "dev_jar=$dev_jar" >> "$GITHUB_OUTPUT"
+
+      - name: Extract release changelog
+        id: changelog
+        shell: bash
+        env:
+          VERSION: ${{ steps.release.outputs.version }}
+          RELEASE_TAG: ${{ inputs.tag }}
+        run: |
+          python3 - <<'PY'
+          import os
+          import re
+          from pathlib import Path
+
+          version = os.environ["VERSION"]
+          tag = os.environ["RELEASE_TAG"]
+          changelog = Path("CHANGELOG.md")
+          output = Path("build/release-changelog.md")
+
+          lines = changelog.read_text(encoding="utf-8").splitlines()
+          heading = re.compile(rf"^## \[{re.escape(version)}\](?:\s+-\s+.*)?\s*$")
+          next_heading = re.compile(r"^## \[")
+          link_ref_block = re.compile(r"^\[[^\]]+\]:\s+")
+
+          start = next((i for i, line in enumerate(lines) if heading.match(line)), None)
+          if start is None:
+              raise SystemExit(f"Could not find changelog section for version {version}")
+
+          end = len(lines)
+          for i in range(start + 1, len(lines)):
+              if next_heading.match(lines[i]) or link_ref_block.match(lines[i]):
+                  end = i
+                  break
+
+          section = lines[start:end]
+          while section and not section[-1].strip():
+              section.pop()
+
+          version_ref = f"[{version}]: https://github.com/NuanKi/AE2-Better-Magnet-Card/tree/{tag}"
+          section.extend(["", version_ref])
+
+          output.parent.mkdir(parents=True, exist_ok=True)
+          output.write_text("\n".join(section) + "\n", encoding="utf-8")
+          PY
+          echo "file=build/release-changelog.md" >> "$GITHUB_OUTPUT"
+
+      - name: Upload dry run artifacts
+        if: ${{ inputs.dry_run }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: dry-run-${{ inputs.tag }}
+          path: |
+            ${{ steps.files.outputs.jar }}
+            ${{ steps.files.outputs.sources_jar }}
+            ${{ steps.files.outputs.dev_jar }}
+            ${{ steps.changelog.outputs.file }}
+          if-no-files-found: error
+
+      - name: Dry run summary
+        if: ${{ inputs.dry_run }}
+        shell: bash
+        run: |
+          {
+            echo "## Dry run completed"
+            echo ""
+            echo "No files were published to CurseForge or GitHub Releases."
+            echo ""
+            echo "Tag: ${{ inputs.tag }}"
+            echo "Game version: ${{ steps.release.outputs.game_version }}"
+            echo "Loader: ${{ steps.release.outputs.loader }}"
+            echo ""
+            echo "Verified files:"
+            echo "- ${{ steps.files.outputs.jar }}"
+            echo "- ${{ steps.files.outputs.sources_jar }}"
+            echo "- ${{ steps.files.outputs.dev_jar }}"
+            echo ""
+            echo "Changelog file: ${{ steps.changelog.outputs.file }}"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Publish to CurseForge and GitHub
+        if: ${{ !inputs.dry_run }}
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          curseforge-id: 1475753
+          curseforge-token: ${{ secrets.CURSEFORGE_TOKEN }}
+          curseforge-files: ${{ steps.files.outputs.jar }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-tag: ${{ inputs.tag }}
+          github-files: |
+            ${{ steps.files.outputs.jar }}
+            ${{ steps.files.outputs.sources_jar }}
+            ${{ steps.files.outputs.dev_jar }}
+          name: ${{ steps.release.outputs.release_name }}
+          version: ${{ steps.release.outputs.version }}
+          version-type: ${{ inputs.release_type }}
+          changelog-file: ${{ steps.changelog.outputs.file }}
+          loaders: ${{ steps.release.outputs.loader }}
+          game-versions: ${{ steps.release.outputs.game_version }}
+          java: ${{ steps.release.outputs.java_version }}
+          fail-mode: fail
