@@ -8,6 +8,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 - None
 
+## [1.1.3] - 2026-04-28
+
+### Changed
+- Updated Chinese localization (`zh_cn.lang`) for BMC upgrades, tooltips, and keybindings.
+- Updated build infrastructure: Retrofuturagradle 1.4.0 and adjusted launchwrapper version to make it work again...
+
 ## [1.1.2] - 2026-03-22
 
 ### Added
@@ -59,7 +65,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Initial release.
 
-[Unreleased]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.1.2...HEAD
+[Unreleased]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.1.3...HEAD
+[1.1.3]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.1.2...v1.1.3
 [1.1.2]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.1.0...v1.1.2
 [1.1.0]: https://github.com/NuanKi/AE2-Better-Magnet-Card/tree/v1.1.0
 [1.0.2]: https://github.com/NuanKi/AE2-Better-Magnet-Card/tree/v1.0.2
