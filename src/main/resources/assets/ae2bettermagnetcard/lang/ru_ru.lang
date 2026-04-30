@@ -1,0 +1,71 @@
+######################################################################
+# AE2BetterMagnetCard - Локализация
+######################################################################
+
+
+#############################
+# Карта магнит - пользовательские строки
+#############################
+
+item.appliedenergistics2.material.card_magnet.store=Средняя кнопка мыши с картой в руке на терминале — переключить «Хранить в ME»
+item.appliedenergistics2.material.card_magnet.shift=Удерживайте Shift, чтобы временно отключить магнит.
+
+gui.tooltips.appliedenergistics2.Magnet=Магнит
+gui.tooltips.appliedenergistics2.MagnetEnabled=Включён
+gui.tooltips.appliedenergistics2.MagnetDisabled=Выключен
+
+gui.tooltips.appliedenergistics2.StoreToNetwork=Хранить в сети
+gui.tooltips.appliedenergistics2.StoreToNetworkEnabled=Включено
+gui.tooltips.appliedenergistics2.StoreToNetworkDisabled=Выключено
+
+item.ae2bettermagnetcard.magnet.available_upgrades=Доступные улучшения:
+
+
+############################################
+# Карта магнит - подсказки/заголовки AE2
+############################################
+
+# Строки подсказок
+item.appliedenergistics2.material.card_magnet.hold_shift=Удерживайте %s для подробностей.
+item.appliedenergistics2.material.card_magnet.hold_shift_m=Удерживайте %s для списка совместимых терминалов.
+
+# Заголовки разделов
+item.appliedenergistics2.material.card_magnet.controls=Управление
+item.appliedenergistics2.material.card_magnet.configuration=Конфигурация
+item.appliedenergistics2.material.card_magnet.compatible=Совместимые терминалы:
+
+
+###########################################
+# BMC Карты улучшений - общие ключи подсказок
+###########################################
+
+item.ae2bettermagnetcard.hold_shift=Удерживайте %s для подробностей.
+item.ae2bettermagnetcard.hold_shift_m=Удерживайте %s, чтобы показать поддерживаемые предметы/блоки.
+item.ae2bettermagnetcard.compatible_with=Устанавливается в:
+item.ae2bettermagnetcard.bmc_upgrade.details=Подробности
+item.ae2bettermagnetcard.bmc_upgrade.generic_no_details=Нет дополнительных сведений.
+
+
+##########################
+# Улучшение BMC: Карта дальности
+##########################
+
+item.ae2bettermagnetcard.bmc_upgrade.range.name=Карта дальности
+item.ae2bettermagnetcard.bmc_upgrade.range.effect_short=Удваивает радиус подбора предметов карты-магнита.
+item.ae2bettermagnetcard.bmc_upgrade.range.detail_range=Радиус подбора: %d → %d блоков
+
+
+###################################
+# Улучшение BMC: Продвинутая карта дальности
+###################################
+
+item.ae2bettermagnetcard.bmc_upgrade.advanced_range.name=Продвинутая карта дальности
+item.ae2bettermagnetcard.bmc_upgrade.advanced_range.effect_short=Утраивает радиус подбора предметов карты-магнита.
+item.ae2bettermagnetcard.bmc_upgrade.advanced_range.detail_range=Радиус подбора: %d → %d блоков
+
+####################################
+# Управление
+####################################
+key.category.ae2bettermagnetcard=AE2 Better Magnet Card
+key.ae2bettermagnetcard.toggle_store=Переключить «Хранить в сети»
+key.ae2bettermagnetcard.toggle_magnet=Переключить магнит
