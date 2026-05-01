@@ -251,8 +251,5 @@ jobs:
           version-type: ${{ inputs.release_type }}
           changelog-file: ${{ steps.changelog.outputs.file }}
           loaders: ${{ steps.release.outputs.loader }}
-          game-versions: |
-            ${{ steps.release.outputs.game_version }}
-            Client
-            Server
+          game-versions: ${{ steps.release.outputs.game_version }}
           fail-mode: fail
