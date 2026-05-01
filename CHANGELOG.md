@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 - None
+## [1.1.4] - 2026-05-01
+
+### Added
+- Updated Russian localization (`ru_ru.lang`) .
 
 ## [1.1.3] - 2026-04-28
 
@@ -66,6 +70,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial release.
 
 [Unreleased]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.1.3...HEAD
+[1.1.4]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.1.3...v1.1.4
 [1.1.3]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.1.2...v1.1.3
 [1.1.2]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.1.0...v1.1.2
 [1.1.0]: https://github.com/NuanKi/AE2-Better-Magnet-Card/tree/v1.1.0
