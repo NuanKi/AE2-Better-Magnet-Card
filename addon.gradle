@@ -1,0 +1,6 @@
+// Project-specific buildscript overrides live here so build.gradle can stay updateable.
+gradle.projectsEvaluated {
+    tasks.named('runClient').configure {
+        maxHeapSize = '2G'
+    }
+}
