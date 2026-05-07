@@ -3,4 +3,7 @@ gradle.projectsEvaluated {
     tasks.named('runClient').configure {
         maxHeapSize = '2G'
     }
+    tasks.named('runObfClient').configure {
+        maxHeapSize = '2G'
+    }
 }
