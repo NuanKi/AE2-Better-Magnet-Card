@@ -1,11 +1,17 @@
 package me.emvoh.ae2bettermagnetcard;
 
 import appeng.api.AEApi;
+import appeng.api.config.Upgrades;
+import appeng.api.definitions.IItemDefinition;
 import me.emvoh.ae2bettermagnetcard.events.MagnetStoreToMEHandler;
-import me.emvoh.ae2bettermagnetcard.utils.enums.BMCUpgrades;
+import me.emvoh.ae2bettermagnetcard.gui.ModGuiHandler;
+import me.emvoh.ae2bettermagnetcard.network.PacketMagnetFilterAction;
+import me.emvoh.ae2bettermagnetcard.network.PacketOpenMagnetFilterGui;
 import me.emvoh.ae2bettermagnetcard.network.PacketToggleMagnet;
+import me.emvoh.ae2bettermagnetcard.utils.enums.BMCUpgrades;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
@@ -22,18 +28,25 @@ import net.minecraftforge.fml.relauncher.Side;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-@Mod(modid = Tags.MODID, version = Tags.VERSION, name = Tags.MODNAME, acceptedMinecraftVersions = "[1.12.2]", dependencies = "required-after:appliedenergistics2;after:appliedenergistics2")
+@Mod(modid = Tags.MODID, version = Tags.VERSION, name = Tags.MODNAME, acceptedMinecraftVersions = "[1.12.2]", dependencies = "required-after:appliedenergistics2;after:appliedenergistics2", guiFactory = "me.emvoh.ae2bettermagnetcard.client.GuiFactoryBMC")
 public class Main {
 
     public static final Logger LOGGER = LogManager.getLogger(Tags.MODID);
     public static final SimpleNetworkWrapper NETWORK = NetworkRegistry.INSTANCE.newSimpleChannel(Tags.MODID);
 
+    @Mod.Instance(Tags.MODID)
+    public static Main INSTANCE;
+
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+
         MinecraftForge.EVENT_BUS.register(this);
         MinecraftForge.EVENT_BUS.register(new MagnetStoreToMEHandler());
 
         NETWORK.registerMessage(PacketToggleMagnet.Handler.class, PacketToggleMagnet.class, 0, Side.SERVER);
+        NETWORK.registerMessage(PacketMagnetFilterAction.Handler.class, PacketMagnetFilterAction.class, 1, Side.SERVER);
+        NETWORK.registerMessage(PacketOpenMagnetFilterGui.Handler.class, PacketOpenMagnetFilterGui.class, 2, Side.SERVER);
+        NetworkRegistry.INSTANCE.registerGuiHandler(this, new ModGuiHandler());
 
         LOGGER.info("I am " + Tags.MODNAME + " at version " + Tags.VERSION);
     }
@@ -68,8 +81,15 @@ public class Main {
     @EventHandler
     // postInit "Handle interaction with other mods, complete your setup based on this." (Remove if not needed)
     public void postInit(FMLPostInitializationEvent event) {
+        unregisterAe2Upgrade(Upgrades.INVERTER, AEApi.instance().definitions().materials().cardMagnet());
+
         BMCUpgrades.RANGE.registerItem(AEApi.instance().definitions().materials().cardMagnet(), 1);
         BMCUpgrades.ADVANCED_RANGE.registerItem(AEApi.instance().definitions().materials().cardMagnet(), 1);
+    }
+
+    private static void unregisterAe2Upgrade(final Upgrades upgrade, final IItemDefinition host) {
+        host.maybeStack(1).ifPresent(hostStack -> upgrade.getSupported().entrySet()
+                .removeIf(entry -> ItemStack.areItemsEqual(entry.getKey(), hostStack)));
     }
 
     @EventHandler
