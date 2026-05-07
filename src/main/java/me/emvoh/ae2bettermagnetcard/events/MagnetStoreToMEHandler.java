@@ -1,18 +1,14 @@
 package me.emvoh.ae2bettermagnetcard.events;
 
 import appeng.api.AEApi;
-import appeng.api.config.FuzzyMode;
-import appeng.api.config.Upgrades;
 import appeng.api.features.IWirelessTermHandler;
 import appeng.api.storage.channels.IItemStorageChannel;
 import appeng.api.storage.data.IAEItemStack;
 import appeng.helpers.WirelessTerminalGuiObject;
-import appeng.items.contents.CellConfig;
-import appeng.items.contents.CellUpgrades;
-import appeng.items.materials.ItemMaterial;
 import appeng.me.helpers.PlayerSource;
 import appeng.util.InventoryAdaptor;
 import appeng.util.Platform;
+import me.emvoh.ae2bettermagnetcard.utils.MagnetCardFilters;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -53,6 +49,10 @@ public class MagnetStoreToMEHandler {
             return;
         }
 
+        if (player.isSneaking()) {
+            return;
+        }
+
         final EntityItem entityItem = event.getItem();
         if (entityItem == null || entityItem.isDead) {
             return;
@@ -73,7 +73,7 @@ public class MagnetStoreToMEHandler {
             return;
         }
 
-        if (!passesMagnetFilter(ctx.magnetCard, picked)) {
+        if (!MagnetCardFilters.passesInsertFilter(ctx.magnetCard, picked)) {
             return;
         }
 
@@ -318,11 +318,6 @@ public class MagnetStoreToMEHandler {
 
             final NBTTagCompound tag = card.getTagCompound();
 
-            final boolean magnetEnabled = tag == null || !tag.hasKey("enabled") || tag.getBoolean("enabled");
-            if (!magnetEnabled) {
-                continue;
-            }
-
             final boolean storeToME = tag != null && tag.hasKey("storeToME") && tag.getBoolean("storeToME");
             if (!storeToME) {
                 continue;
@@ -334,47 +329,4 @@ public class MagnetStoreToMEHandler {
         return ItemStack.EMPTY;
     }
 
-    private boolean passesMagnetFilter(final ItemStack magnetCard, final ItemStack candidate) {
-        final ItemMaterial im = (ItemMaterial) magnetCard.getItem();
-        final CellConfig cfg = (CellConfig) im.getConfigInventory(magnetCard);
-        final CellUpgrades ups = (CellUpgrades) im.getUpgradesInventory(magnetCard);
-
-        final boolean isFuzzy = ups.getInstalledUpgrades(Upgrades.FUZZY) == 1;
-        final FuzzyMode fz = isFuzzy ? im.getFuzzyMode(magnetCard) : null;
-        final boolean inverted = ups.getInstalledUpgrades(Upgrades.INVERTER) == 1;
-
-        boolean emptyFilter = true;
-        boolean matched = false;
-
-        for (int i = 0; i < cfg.getSlots(); i++) {
-            final ItemStack filter = cfg.getStackInSlot(i);
-            if (filter.isEmpty()) {
-                continue;
-            }
-
-            emptyFilter = false;
-
-            if (isFuzzy) {
-                if (Platform.itemComparisons().isFuzzyEqualItem(filter, candidate, fz)) {
-                    matched = true;
-                    break;
-                }
-            } else {
-                if (Platform.itemComparisons().isSameItem(filter, candidate)) {
-                    matched = true;
-                    break;
-                }
-            }
-        }
-
-        if (emptyFilter) {
-            return true;
-        }
-
-        if (matched && !inverted) {
-            return true;
-        }
-
-        return !matched && inverted;
-    }
 }

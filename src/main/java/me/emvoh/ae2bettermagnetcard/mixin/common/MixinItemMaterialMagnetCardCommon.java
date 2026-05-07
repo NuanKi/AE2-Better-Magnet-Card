@@ -16,6 +16,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(value = ItemMaterial.class, remap = false)
 public abstract class MixinItemMaterialMagnetCardCommon {
 
+    @Inject(method = "isEditable", at = @At("HEAD"), cancellable = true, require = 1)
+    private void ae2bmc$disableMagnetCellWorkbench(ItemStack is, CallbackInfoReturnable<Boolean> cir) {
+        if (is == null || is.isEmpty()) return;
+
+        final ItemMaterial self = (ItemMaterial) (Object) this;
+        if (self.getTypeByStack(is) == MaterialType.CARD_MAGNET) {
+            cir.setReturnValue(false);
+        }
+    }
+
     @Inject(method = "getUpgradesInventory", at = @At("HEAD"), cancellable = true, require = 1)
     private void ae2bettermagnetcard$expandMagnetUpgradeSlots(ItemStack is, CallbackInfoReturnable<IItemHandler> cir) {
         if (is == null || is.isEmpty()) return;

@@ -138,7 +138,7 @@ public abstract class MixinItemMaterialMagnetTooltip {
         lines.add("");
 
         lines.add(TextFormatting.GRAY + I18n.translateToLocal("item.appliedenergistics2.material.card_magnet.configuration") + ":");
-        lines.add(TextFormatting.DARK_GRAY + "• " + TextFormatting.GRAY + I18n.translateToLocal("item.appliedenergistics2.material.card_magnet.partition"));
+        lines.add(TextFormatting.DARK_GRAY + "• " + TextFormatting.GRAY + I18n.translateToLocal("item.appliedenergistics2.material.card_magnet.filters"));
 
         lines.add("");
         lines.add(TextFormatting.GRAY + I18n.translateToLocal("item.ae2bettermagnetcard.magnet.available_upgrades"));

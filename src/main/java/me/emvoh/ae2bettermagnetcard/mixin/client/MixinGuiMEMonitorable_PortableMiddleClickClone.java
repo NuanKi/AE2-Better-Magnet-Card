@@ -26,8 +26,8 @@ public abstract class MixinGuiMEMonitorable_PortableMiddleClickClone {
     @Shadow(remap = true)
     protected abstract void handleMouseClick(Slot slotIn, int slotId, int mouseButton, ClickType type);
 
-    @Inject(method = {"mouseClicked(III)V",          // dev
-            "func_73864_a(III)V"           // obf client (SRG)
+    @Inject(method = {"mouseClicked(III)V",
+            "func_73864_a(III)V"
     }, at = @At("HEAD"), cancellable = true, require = 1)
     private void ae2bettermagnetcard$portableTerminalMiddleClickClone(final int xCoord, final int yCoord, final int btn, final CallbackInfo ci) throws IOException {
         if (btn != 2) {

@@ -2,6 +2,7 @@ package me.emvoh.ae2bettermagnetcard.mixin.common;
 
 import appeng.items.tools.powered.ToolWirelessTerminal;
 import me.emvoh.ae2bettermagnetcard.integration.botania.BotaniaSolegnoliaCompat;
+import me.emvoh.ae2bettermagnetcard.utils.MagnetCardFilters;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
@@ -30,8 +31,11 @@ public abstract class MixinMagnetLogic_SolegnoliaDisable {
 
     // If the item is inside Solegnolia range, do not teleport it
     @Redirect(method = "magnetLogic(Lnet/minecraft/item/ItemStack;Lnet/minecraft/world/World;Lnet/minecraft/entity/Entity;)V", at = @At(value = "INVOKE", target = "Lappeng/items/tools/powered/ToolWirelessTerminal;teleportItem(Lnet/minecraft/entity/item/EntityItem;Lnet/minecraft/entity/Entity;)V"), require = 1)
-    private void ae2bmc$blockTeleportIfItemInSolegnolia(ToolWirelessTerminal self, EntityItem item, Entity entityIn) {
+    private void ae2bmc$blockTeleportIfItemInSolegnolia(ToolWirelessTerminal self, EntityItem item, Entity entityIn, ItemStack stack, World worldIn, Entity originalEntity) {
         if (BotaniaSolegnoliaCompat.hasSolegnoliaAround(item)) {
+            return;
+        }
+        if (!MagnetCardFilters.passesPickupFilterForTerminal(stack, item.getItem())) {
             return;
         }
         this.teleportItem(item, entityIn);

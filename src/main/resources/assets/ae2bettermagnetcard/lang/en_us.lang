@@ -7,18 +7,33 @@
 # Magnet Card - custom lines
 #############################
 
-item.appliedenergistics2.material.card_magnet.store=Middle click while equipped on a terminal to toggle Store into ME
+item.appliedenergistics2.material.card_magnet.usage=Right-click with an empty hand while equipped on a terminal to toggle the magnet.
+item.appliedenergistics2.material.card_magnet.store=Middle click while equipped on a terminal to toggle Insert into ME
+item.appliedenergistics2.material.card_magnet.filters=Use Magnet Settings from the terminal toolbar or keybind to edit filters and upgrade slots.
 item.appliedenergistics2.material.card_magnet.shift=Hold Shift to temporarily disable the magnet.
 
 gui.tooltips.appliedenergistics2.Magnet=Magnet
 gui.tooltips.appliedenergistics2.MagnetEnabled=Enabled
 gui.tooltips.appliedenergistics2.MagnetDisabled=Disabled
 
-gui.tooltips.appliedenergistics2.StoreToNetwork=Store into Network
+gui.tooltips.appliedenergistics2.StoreToNetwork=Insert into Network
 gui.tooltips.appliedenergistics2.StoreToNetworkEnabled=Enabled
 gui.tooltips.appliedenergistics2.StoreToNetworkDisabled=Disabled
 
 item.ae2bettermagnetcard.magnet.available_upgrades=Supported upgrades:
+
+gui.ae2bettermagnetcard.magnet_filter.open=Magnet Settings
+gui.ae2bettermagnetcard.magnet_filter.open_tooltip=Edit pickup filters, insert filters, and upgrade cards
+gui.ae2bettermagnetcard.magnet_filter.fuzzy_upgrade=Fuzzy Card Upgrade Slot
+gui.ae2bettermagnetcard.magnet_filter.range_upgrade=Range Card Upgrade Slot
+gui.ae2bettermagnetcard.magnet_filter.pickup=Pickup Filter
+gui.ae2bettermagnetcard.magnet_filter.insert=Insert to ME Filter
+gui.ae2bettermagnetcard.magnet_filter.allow=Whitelist
+gui.ae2bettermagnetcard.magnet_filter.deny=Blacklist
+gui.ae2bettermagnetcard.magnet_filter.copy_pickup=Copy Insert filter to Pickup
+gui.ae2bettermagnetcard.magnet_filter.copy_insert=Copy Pickup filter to Insert
+gui.ae2bettermagnetcard.magnet_filter.switch=Swap
+gui.ae2bettermagnetcard.magnet_filter.switch_tooltip=Swap Pickup and Insert filters
 
 
 ############################################
@@ -52,7 +67,7 @@ item.ae2bettermagnetcard.bmc_upgrade.generic_no_details=No additional details.
 
 item.ae2bettermagnetcard.bmc_upgrade.range.name=Range Card
 item.ae2bettermagnetcard.bmc_upgrade.range.effect_short=Doubles the Magnet Card pickup radius.
-item.ae2bettermagnetcard.bmc_upgrade.range.detail_range=Pickup radius: %d → %d blocks
+item.ae2bettermagnetcard.bmc_upgrade.range.detail_range=Pickup radius: %d -> %d blocks
 
 
 ###################################
@@ -61,11 +76,17 @@ item.ae2bettermagnetcard.bmc_upgrade.range.detail_range=Pickup radius: %d → %d
 
 item.ae2bettermagnetcard.bmc_upgrade.advanced_range.name=Advanced Range Card
 item.ae2bettermagnetcard.bmc_upgrade.advanced_range.effect_short=Triples the Magnet Card pickup radius.
-item.ae2bettermagnetcard.bmc_upgrade.advanced_range.detail_range=Pickup radius: %d → %d blocks
+item.ae2bettermagnetcard.bmc_upgrade.advanced_range.detail_range=Pickup radius: %d -> %d blocks
 
 ####################################
 # Controls
 ####################################
 key.category.ae2bettermagnetcard=AE2 Better Magnet Card
-key.ae2bettermagnetcard.toggle_store=Toggle Store into Network
+key.ae2bettermagnetcard.toggle_store=Toggle Insert into Network
+key.ae2bettermagnetcard.open_filter=Open Magnet Settings
 key.ae2bettermagnetcard.toggle_magnet=Toggle Magnet
+
+####################################
+# Config
+####################################
+ae2bettermagnetcard.config.gui_background_style=GUI Background Style

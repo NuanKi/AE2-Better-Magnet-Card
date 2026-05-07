@@ -11,12 +11,15 @@ public class KeyBindings {
 
     public static KeyBinding toggleStore;
     public static KeyBinding toggleMagnet;
+    public static KeyBinding openFilter;
 
     public static void init() {
         toggleStore = new KeyBinding("key.ae2bettermagnetcard.toggle_store", KeyConflictContext.IN_GAME, KeyModifier.SHIFT, Keyboard.KEY_BACKSLASH, "key.category." + Tags.MODID);
         toggleMagnet = new KeyBinding("key.ae2bettermagnetcard.toggle_magnet", KeyConflictContext.IN_GAME, KeyModifier.SHIFT, Keyboard.KEY_TAB, "key.category." + Tags.MODID);
+        openFilter = new KeyBinding("key.ae2bettermagnetcard.open_filter", KeyConflictContext.IN_GAME, KeyModifier.SHIFT, Keyboard.KEY_F, "key.category." + Tags.MODID);
 
         ClientRegistry.registerKeyBinding(toggleStore);
         ClientRegistry.registerKeyBinding(toggleMagnet);
+        ClientRegistry.registerKeyBinding(openFilter);
     }
 }

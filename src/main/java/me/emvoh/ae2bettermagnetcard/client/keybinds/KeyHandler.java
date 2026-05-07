@@ -2,6 +2,7 @@ package me.emvoh.ae2bettermagnetcard.client.keybinds;
 
 import me.emvoh.ae2bettermagnetcard.Main;
 import me.emvoh.ae2bettermagnetcard.Tags;
+import me.emvoh.ae2bettermagnetcard.network.PacketOpenMagnetFilterGui;
 import me.emvoh.ae2bettermagnetcard.network.PacketToggleMagnet;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.Mod;
@@ -22,6 +23,8 @@ public class KeyHandler {
             Main.NETWORK.sendToServer(new PacketToggleMagnet(PacketToggleMagnet.ToggleType.STORE_TO_NETWORK));
         } else if (KeyBindings.toggleMagnet.isPressed()) {
             Main.NETWORK.sendToServer(new PacketToggleMagnet(PacketToggleMagnet.ToggleType.MAGNET));
+        } else if (KeyBindings.openFilter.isPressed()) {
+            Main.NETWORK.sendToServer(new PacketOpenMagnetFilterGui());
         }
     }
 }

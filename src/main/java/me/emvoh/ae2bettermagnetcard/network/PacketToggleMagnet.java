@@ -1,7 +1,7 @@
 package me.emvoh.ae2bettermagnetcard.network;
 
-import io.netty.buffer.ByteBuf;
 import appeng.util.Platform;
+import io.netty.buffer.ByteBuf;
 import me.emvoh.ae2bettermagnetcard.events.MagnetStoreToMEHandler;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.item.ItemStack;

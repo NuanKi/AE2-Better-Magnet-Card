@@ -1,23 +1,26 @@
 {
   "package": "me.emvoh.ae2bettermagnetcard.mixin",
-  "refmap": "mixins.ae2modidviewcell.refmap.json",
+  "refmap": "mixins.ae2bettermagnetcard.refmap.json",
   "target": "@env(DEFAULT)",
   "minVersion": "0.8",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "accessors.AccessorAppEngSlot",
+    "accessors.AccessorCellConfig",
+    "accessors.AccessorContainerMEPortableTerminal",
     "accessors.AccessorStackUpgradeInventory",
-
-    "common.MixinContainerMEPortableTerminalStoreToMe",
-    "common.MixinContainerMEMonitorable_MagnetShiftClick",
-    "common.MixinMagnetLogic_SolegnoliaDisable",
-    "common.MixinItemMaterialMagnetCardCommon",
-    "common.MixinMagnetLogic_RangeUpgrade",
     "common.MixinAE2UpgradeFilter_BMCUpgrades",
-    "common.MixinSlotRestrictedInput_BMCUpgrades",
-    "common.MixinAEBaseContainer_ShiftClickBMCUpgrades"
+    "common.MixinAEBaseContainer_ShiftClickBMCUpgrades",
+    "common.MixinContainerMEMonitorable_MagnetShiftClick",
+    "common.MixinContainerMEPortableTerminalStoreToMe",
+    "common.MixinItemMaterialMagnetCardCommon",
+    "common.MixinMagnetLogic_PickupFilter",
+    "common.MixinMagnetLogic_RangeUpgrade",
+    "common.MixinMagnetLogic_SolegnoliaDisable",
+    "common.MixinSlotRestrictedInput_BMCUpgrades"
   ],
   "client": [
+    "client.MixinGuiMEMonitorable_MagnetFilterButton",
     "client.MixinGuiMEMonitorable_PortableMiddleClickClone",
     "client.MixinItemMaterialMagnetTooltip"
   ],
