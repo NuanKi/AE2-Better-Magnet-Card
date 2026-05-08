@@ -7,6 +7,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 - None
+
+## [1.2.0] - 2026-05-07
+
+### Added
+- Added the Magnet Settings GUI, opened from a terminal toolbar button or the new keybind.
+- Added separate Pickup Filter and Insert to ME Filter inventories with ghost-item slots.
+- Added whitelist/blacklist modes for each filter, plus copy and swap actions between both filters.
+- Added Magnet Card upgrade slots in Magnet Settings for Fuzzy Card and Range Card upgrades.
+- Added support for the new filter data in magnet pickup logic and Store into ME insertion logic.
+- Added JEI exclusion areas for the new terminal toolbar button and Magnet Settings GUI.
+- Added Wireless Universal Terminal toolbar integration for the new Magnet Settings button.
+- Added configurable classic/modern GUI styling with matching backgrounds, buttons, inventory slots, and Range Card item textures.
+- Added an in-game config GUI for client visual settings.
+
+### Changed
+- Magnet Card filters and its upgrade cards are now configured through Magnet Settings instead of the Cell Workbench.
+- Magnet Card tooltips now point players to Magnet Settings for filters and upgrade slots.
+- Inverter Card is no longer registered as a supported Magnet Card upgrade; use the Whitelist and Blacklist buttons in Magnet Settings instead.
+- Updated Wireless Universal Terminal toolbar placement so the Magnet Settings button appears before the WUT terminal switcher button.
+- Updated Range Card and Advanced Range Card rendering to switch between classic and modern textures using the client style config.
+
 ## [1.1.4] - 2026-05-01
 
 ### Added
@@ -69,7 +90,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Initial release.
 
-[Unreleased]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.1.3...HEAD
+[Unreleased]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.2.0...HEAD
+[1.2.0]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.1.4...v1.2.0
 [1.1.4]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.1.3...v1.1.4
 [1.1.3]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.1.2...v1.1.3
 [1.1.2]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.1.0...v1.1.2
