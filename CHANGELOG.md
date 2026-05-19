@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 - None
 
+## [1.2.1] - 2026 05-19
+- Updated Chinese localization (`zh_cn.lang`) .
+
 ## [1.2.0] - 2026-05-07
 
 ### Added
