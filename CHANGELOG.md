@@ -93,7 +93,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 - Initial release.
 
-[Unreleased]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.2.0...HEAD
+[Unreleased]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.2.1...HEAD
+[1.2.1]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.1.4...v1.2.0
 [1.1.4]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.1.3...v1.1.4
 [1.1.3]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.1.2...v1.1.3
