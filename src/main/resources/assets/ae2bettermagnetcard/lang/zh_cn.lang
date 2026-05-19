@@ -7,18 +7,33 @@
 # Magnet Card - custom lines
 #############################
 
-item.appliedenergistics2.material.card_magnet.store=安装在终端中时，中键点击以开关存储到ME网络功能
+item.appliedenergistics2.material.card_magnet.usage=安装在终端中时，空手右键点击以开关磁引功能。
+item.appliedenergistics2.material.card_magnet.store=安装在终端中时，中键点击以开关存入ME网络功能。
+item.appliedenergistics2.material.card_magnet.filters=使用终端工具栏中的磁引设置或按键绑定来编辑过滤项和升级槽位。
 item.appliedenergistics2.material.card_magnet.shift=按住 Shift 暂时禁用磁引功能。
 
 gui.tooltips.appliedenergistics2.Magnet=磁引
 gui.tooltips.appliedenergistics2.MagnetEnabled=已启用
 gui.tooltips.appliedenergistics2.MagnetDisabled=已禁用
 
-gui.tooltips.appliedenergistics2.StoreToNetwork=存储到网络
+gui.tooltips.appliedenergistics2.StoreToNetwork=存入网络
 gui.tooltips.appliedenergistics2.StoreToNetworkEnabled=已启用
 gui.tooltips.appliedenergistics2.StoreToNetworkDisabled=已禁用
 
 item.ae2bettermagnetcard.magnet.available_upgrades=可安装升级：
+
+gui.ae2bettermagnetcard.magnet_filter.open=磁引设置
+gui.ae2bettermagnetcard.magnet_filter.open_tooltip=编辑拾取过滤项、存入过滤项，以及升级卡
+gui.ae2bettermagnetcard.magnet_filter.fuzzy_upgrade=模糊卡升级槽位
+gui.ae2bettermagnetcard.magnet_filter.range_upgrade=范围卡升级槽位
+gui.ae2bettermagnetcard.magnet_filter.pickup=拾取过滤项
+gui.ae2bettermagnetcard.magnet_filter.insert=存入ME过滤项
+gui.ae2bettermagnetcard.magnet_filter.allow=白名单
+gui.ae2bettermagnetcard.magnet_filter.deny=黑名单
+gui.ae2bettermagnetcard.magnet_filter.copy_pickup=将存入过滤项复制到拾取过滤项
+gui.ae2bettermagnetcard.magnet_filter.copy_insert=将拾取过滤项复制到存入过滤项
+gui.ae2bettermagnetcard.magnet_filter.switch=交换
+gui.ae2bettermagnetcard.magnet_filter.switch_tooltip=交换拾取过滤项和存入过滤项
 
 
 ############################################
@@ -52,7 +67,7 @@ item.ae2bettermagnetcard.bmc_upgrade.generic_no_details=无额外说明。
 
 item.ae2bettermagnetcard.bmc_upgrade.range.name=范围卡
 item.ae2bettermagnetcard.bmc_upgrade.range.effect_short=使磁引卡的拾取半径翻倍。
-item.ae2bettermagnetcard.bmc_upgrade.range.detail_range=拾取半径：%d → %d 格
+item.ae2bettermagnetcard.bmc_upgrade.range.detail_range=拾取半径：%d -> %d 格
 
 
 ###################################
@@ -61,11 +76,17 @@ item.ae2bettermagnetcard.bmc_upgrade.range.detail_range=拾取半径：%d → %d
 
 item.ae2bettermagnetcard.bmc_upgrade.advanced_range.name=高级范围卡
 item.ae2bettermagnetcard.bmc_upgrade.advanced_range.effect_short=使磁引卡的拾取半径变为三倍。
-item.ae2bettermagnetcard.bmc_upgrade.advanced_range.detail_range=拾取半径：%d → %d 格
+item.ae2bettermagnetcard.bmc_upgrade.advanced_range.detail_range=拾取半径：%d -> %d 格
 
 ####################################
 # Controls
 ####################################
 key.category.ae2bettermagnetcard=AE2更好的磁引卡（AE2 Better Magnet Card）
 key.ae2bettermagnetcard.toggle_store=开关存入网络功能
+key.ae2bettermagnetcard.open_filter=打开磁引设置
 key.ae2bettermagnetcard.toggle_magnet=开关磁引功能
+
+####################################
+# Config
+####################################
+ae2bettermagnetcard.config.gui_background_style=GUI背景样式
