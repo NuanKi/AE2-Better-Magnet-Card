@@ -8,7 +8,7 @@
 #############################
 
 item.appliedenergistics2.material.card_magnet.usage=Right-click with an empty hand while equipped on a terminal to toggle the magnet.
-item.appliedenergistics2.material.card_magnet.store=Middle click while equipped on a terminal to toggle Insert into ME
+item.appliedenergistics2.material.card_magnet.store=Middle click while equipped on a terminal to toggle Insert into ME.
 item.appliedenergistics2.material.card_magnet.filters=Use Magnet Settings from the terminal toolbar or keybind to edit filters and upgrade slots.
 item.appliedenergistics2.material.card_magnet.shift=Hold Shift to temporarily disable the magnet.
 
