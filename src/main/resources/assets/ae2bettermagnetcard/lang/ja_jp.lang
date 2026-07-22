@@ -1,0 +1,92 @@
+######################################################################
+# AE2BetterMagnetCard - Localization
+######################################################################
+
+
+#############################
+# Magnet Card - custom lines
+#############################
+
+item.appliedenergistics2.material.card_magnet.usage=ターミナルにインストールした状態で何も持たずにアップレードを右クリックするとマグネットを切り替えられます
+item.appliedenergistics2.material.card_magnet.store=ターミナルにインストールした状態でアップレードをホイールクリックするとMEへの搬入を切り替えれます
+item.appliedenergistics2.material.card_magnet.filters=ターミナルのツールバーまたはキーバインドのマグネットの設定から、フィルターの編集やアップグレードスロットにアクセスできます
+item.appliedenergistics2.material.card_magnet.shift=Shiftを押している間はマグネット機能が一時的に無効化されます
+
+gui.tooltips.appliedenergistics2.Magnet=マグネット
+gui.tooltips.appliedenergistics2.MagnetEnabled=有効
+gui.tooltips.appliedenergistics2.MagnetDisabled=無効
+
+gui.tooltips.appliedenergistics2.StoreToNetwork=ネットワークに搬入
+gui.tooltips.appliedenergistics2.StoreToNetworkEnabled=有効
+gui.tooltips.appliedenergistics2.StoreToNetworkDisabled=無効
+
+item.ae2bettermagnetcard.magnet.available_upgrades=対応アップグレード:
+
+gui.ae2bettermagnetcard.magnet_filter.open=マグネット設定
+gui.ae2bettermagnetcard.magnet_filter.open_tooltip=ピックアップフィルターと搬入フィルターの編集とアップグレードスロット
+gui.ae2bettermagnetcard.magnet_filter.fuzzy_upgrade=ファジーカードスロット
+gui.ae2bettermagnetcard.magnet_filter.range_upgrade=範囲カードスロット
+gui.ae2bettermagnetcard.magnet_filter.pickup=ピックアップフィルター
+gui.ae2bettermagnetcard.magnet_filter.insert=ME搬入フィルター
+gui.ae2bettermagnetcard.magnet_filter.allow=Whitelist
+gui.ae2bettermagnetcard.magnet_filter.deny=Blacklist
+gui.ae2bettermagnetcard.magnet_filter.copy_pickup=搬入フィルターをピックアップフィルターにコピー
+gui.ae2bettermagnetcard.magnet_filter.copy_insert=ピックアップフィルターを搬入フィルターにコピー
+gui.ae2bettermagnetcard.magnet_filter.switch=入れ替え
+gui.ae2bettermagnetcard.magnet_filter.switch_tooltip=ピックアップと搬入フィルターを入れ替え
+
+
+############################################
+# Magnet Card - AE2 hint lines / headers
+############################################
+
+# Hint lines
+item.appliedenergistics2.material.card_magnet.hold_shift=%sを長押しして詳細を表示
+item.appliedenergistics2.material.card_magnet.hold_shift_m=%sを長押しして対応ターミナルを表示
+
+# Section headers
+item.appliedenergistics2.material.card_magnet.controls=操作
+item.appliedenergistics2.material.card_magnet.configuration=設定
+item.appliedenergistics2.material.card_magnet.compatible=対応ターミナル:
+
+
+###########################################
+# BMC Upgrade Cards - global tooltip keys
+###########################################
+
+item.ae2bettermagnetcard.hold_shift=%sを長押しして詳細を表示
+item.ae2bettermagnetcard.hold_shift_m=%sを長押しして対応しているアイテム/ブロックを表示
+item.ae2bettermagnetcard.compatible_with=インストール可能:
+item.ae2bettermagnetcard.bmc_upgrade.details=詳細
+item.ae2bettermagnetcard.bmc_upgrade.generic_no_details=追加の詳細はありません
+
+
+##########################
+# BMC Upgrade: Range Card
+##########################
+
+item.ae2bettermagnetcard.bmc_upgrade.range.name=範囲カード
+item.ae2bettermagnetcard.bmc_upgrade.range.effect_short=マグネットカードの回収範囲を2倍にします
+item.ae2bettermagnetcard.bmc_upgrade.range.detail_range=回収範囲: %d -> %dブロック
+
+
+###################################
+# BMC Upgrade: Advanced Range Card
+###################################
+
+item.ae2bettermagnetcard.bmc_upgrade.advanced_range.name=発展範囲カード
+item.ae2bettermagnetcard.bmc_upgrade.advanced_range.effect_short=マグネットカードの回収範囲を3倍にします
+item.ae2bettermagnetcard.bmc_upgrade.advanced_range.detail_range=回収範囲: %d -> %dブロック
+
+####################################
+# Controls
+####################################
+key.category.ae2bettermagnetcard=AE2 Better Magnet Card
+key.ae2bettermagnetcard.toggle_store=ネットワークへの搬入を切り替え
+key.ae2bettermagnetcard.open_filter=マグネット設定を開く
+key.ae2bettermagnetcard.toggle_magnet=マグネットを切り替え
+
+####################################
+# Config
+####################################
+ae2bettermagnetcard.config.gui_background_style=GUI背景のスタイル
