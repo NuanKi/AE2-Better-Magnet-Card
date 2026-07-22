@@ -8,6 +8,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 - None
 
+## [1.2.2] - 2026-07-22
+- Japanese localization added: (`ja_jp.lang`) .
+
 ## [1.2.1] - 2026 05-19
 - Updated Chinese localization (`zh_cn.lang`) .
 
@@ -94,6 +97,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial release.
 
 [Unreleased]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.2.1...HEAD
+[1.2.2]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.2.1...v1.2.2
 [1.2.1]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.2.0...v1.2.1
 [1.2.0]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.1.4...v1.2.0
 [1.1.4]: https://github.com/NuanKi/AE2-Better-Magnet-Card/compare/v1.1.3...v1.1.4
